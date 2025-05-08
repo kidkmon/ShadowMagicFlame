@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MainMenuController : MonoBehaviour
+public class MainMenuHandler : MonoBehaviour
 {
     public void LoadAceOfShadowsScene() => LoadSceneManager.Instance.LoadScene(SceneNames.AceOfShadows);
     public void LoadMagicWordsScene() => LoadSceneManager.Instance.LoadScene(SceneNames.MagicWords);
