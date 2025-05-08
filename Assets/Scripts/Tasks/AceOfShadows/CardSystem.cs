@@ -21,7 +21,7 @@ public class CardSystem : MonoBehaviour
     void Start()
     {
         InitializeCards();
-        StartCoroutine(MoveCardsToNewColumn(columns[0], columns[1]));
+        StartCoroutine(MoveCardsToNewColumn(columns[0], columns[1], true));
     }
 
     private void InitializeCards()
@@ -35,7 +35,7 @@ public class CardSystem : MonoBehaviour
         }
     }
 
-    private IEnumerator MoveCardsToNewColumn(CardsColumnController currentColumn, CardsColumnController targetColumn)
+    private IEnumerator MoveCardsToNewColumn(CardsColumnController currentColumn, CardsColumnController targetColumn, bool showMessage)
     {
         while (!currentColumn.IsEmpty)
         {
@@ -51,6 +51,19 @@ public class CardSystem : MonoBehaviour
 
             yield return new WaitForSeconds(moveDuration);
         }
+
+        yield return new WaitForSeconds(0.5f);
+
+        if (showMessage)
+        {
+            ToastMessageUI.Instance.ShowMessage("All cards moved to the new column!", RevertCards);
+        }
+    }
+
+    private void RevertCards()
+    {
+        moveDuration = 0.25f;
+        StartCoroutine(MoveCardsToNewColumn(columns[1], columns[0], false));
     }
 
     private Sprite GetRandomSprite()
