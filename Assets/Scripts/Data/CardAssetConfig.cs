@@ -4,8 +4,8 @@ using UnityEngine;
 public class CardAssetConfig : ScriptableObject
 {
     [SerializeField] int _id;
-    [SerializeField] Sprite _icon;
+    [SerializeField] Sprite _sprite;
     
     public int Id => _id;
-    public Sprite Icon => _icon;
+    public Sprite Sprite => _sprite;
 }

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Card 8
   m_EditorClassIdentifier: 
   _id: 8
-  _icon: {fileID: 563475452883049704, guid: d70b3d34fbef612429d7b29ddaaa8a23, type: 3}
+  _sprite: {fileID: 563475452883049704, guid: d70b3d34fbef612429d7b29ddaaa8a23, type: 3}
