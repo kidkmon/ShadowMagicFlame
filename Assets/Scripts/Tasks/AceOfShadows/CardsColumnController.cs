@@ -15,8 +15,8 @@ public class CardsColumnController : MonoBehaviour
     public void AddCard(CardController card)
     {
         _stack.Push(card);
-        card.transform.SetParent(transform);
         card.SetSortingOrder(_stack.Count);
+        card.transform.SetParent(transform);
         card.transform.localPosition = GetNewCardOffsetPosition();
         card.transform.SetAsLastSibling();
         OnCardCountChanged?.Invoke(_stack.Count);
