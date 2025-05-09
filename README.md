@@ -22,9 +22,9 @@
 
 ## 🛠️ Architectures and Patterns  
 ### **Singleton**  
-- Used for persist global components:
-  - `LoadSceneManager`: responsible for the transition between scenes.
-  - `FPSCounter`: responsible for track the FPS.
+- Used to persist global components:
+  - `LoadSceneManager`: Responsible for scene transitions.
+  - `FPSCounter`: Tracks and displays real-time FPS.
 
 ### **MVC (Model-View-Controller)**  
 - **Model**: Data classes such as `DialogueData` and `AvatarData`.  
@@ -49,25 +49,25 @@
 - **Limited emoji set (Magic Words)**  
   Only a basic emoji set is currently supported via token parsing (`{emoji}`). Fallbacks for unknown tokens may not fully align with the intended emotion.
 
-- **Click on screen doesn't complete current dialogue (Magic Words)**  
+- **Clicking the screen does not complete the current dialogue (Magic Words)**  
 
 - **Gradient flickering (Phoenix Flame)**  
-  On very low frame rates, gradient color transition on the fire may appear slightly jumpy. Smoothness depends on consistent update rates.
+  At very low frame rates, the fire’s gradient color transition may appear slightly jumpy. Smoothness depends on consistent update rates.
 
 ---
 
 ## 🚀 Future Work
 
-- **Magic Words**
-  - **Add typewriter animation to dialogues**  
-    Gradual text reveal with optional user skip, to improve immersion.
-  - **Emoji sprite atlas support**  
-    Replace `{emoji}` tokens with actual sprite images to achieve full-color emoji rendering with TMP sprite assets.
-  - **Dialogue skip and rewind**  
-    Allow users to skip all messages or revisit previous ones in the Magic Words task.
+### **Magic Words**
+- **Typewriter animation for dialogue**  
+  Gradual text reveal with optional user skip to enhance immersion.
+- **Emoji sprite atlas support**  
+  Replace `{emoji}` tokens with sprite-based images to achieve full-color emoji rendering using TMP sprite assets.
+- **Dialogue skipping and rewind**  
+  Allow users to skip all messages or revisit previous ones during the dialogue sequence.
 
-- **General**
-  - **Visual feedback on button states**  
-    Add animations or hover effects to improve UI clarity and response.
-  - **Audio feedback and ambient sounds**  
-    Integrate SFX (e.g., fire crackle, UI clicks) for a richer player experience.
+### **General**
+- **Visual feedback on button states**  
+  Add animations or hover effects to improve UI clarity and responsiveness.
+- **Audio feedback and ambient sounds**  
+  Integrate SFX (e.g., fire crackle, UI clicks) to enhance the player experience.
