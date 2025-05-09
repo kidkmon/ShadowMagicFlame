@@ -37,7 +37,7 @@ public class CardSystem : MonoBehaviour
 
     private IEnumerator MoveCardsToNewColumn(CardsColumnController currentColumn, CardsColumnController targetColumn, bool showMessage)
     {
-        while (!currentColumn.IsEmpty)
+        while (!currentColumn.IsEmpty())
         {
             CardController card = currentColumn.RemoveCard();
             var targetPosition = targetColumn.GetTopCardPosition();

@@ -59,6 +59,5 @@ public class ToastMessageUI : MonoBehaviour
             gameObject.SetActive(false);
             onComplete?.Invoke();
         });
-        //seq.Join(toastTransform.DOScale(1.2f, 0.4f).SetEase(Ease.OutBack));
     }
 }

@@ -45,5 +45,13 @@ public class CardsColumnController : MonoBehaviour
     }
 
     public int Count => _stack.Count;
-    public bool IsEmpty => _stack.Count == 0;
+    public bool IsEmpty()
+    {
+        if (_stack.Count == 0)
+        {
+            _currentCardOffset = 0;
+            return true;
+        }
+        return false;
+    }
 }
