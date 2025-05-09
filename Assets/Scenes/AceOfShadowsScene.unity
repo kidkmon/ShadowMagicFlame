@@ -448,7 +448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90330212e1dbbe5428c392e06e8c8772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalCards: 5
+  totalCards: 144
   moveDuration: 1
   cardsAssetCollection: {fileID: 11400000, guid: d41bac30d6c9e2b4cb9ad943045a39a9, type: 2}
   cardPrefab: {fileID: 1399221656340088281, guid: 88e2978a0d56e09479e431900aac858c, type: 3}

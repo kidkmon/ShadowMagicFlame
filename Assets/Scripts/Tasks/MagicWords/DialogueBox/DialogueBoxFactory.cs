@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class DialogueBoxFactory
@@ -9,11 +10,11 @@ public class DialogueBoxFactory
         _dialoguePrefab = dialoguePrefab;
     }
 
-    public GameObject Create(Transform parent, DialogueData data, AvatarData avatarData)
+    public GameObject CreateDialog(Transform parent, DialogueData data, AvatarData avatarData, Action onComplete)
     {
-        GameObject go = Object.Instantiate(_dialoguePrefab, parent);
+        GameObject go = UnityEngine.Object.Instantiate(_dialoguePrefab, parent);
         var controller = go.GetComponent<DialogueBoxController>();
-        controller.SetData(data, avatarData);
+        controller.Setup(data, avatarData, onComplete);
         return go;
     }
 }

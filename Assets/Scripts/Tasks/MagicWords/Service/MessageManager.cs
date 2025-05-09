@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class MessageManager : MonoBehaviour
 {
-    [Header("Dialogue Box References")]
-    [SerializeField] private GameObject dialogueBoxPrefab;
-    [SerializeField] private Transform dialogueBoxParent;
-
-    private DialogueBoxFactory _dialogueBoxFactory;
+    [Header("Dialogue References")]
+    [SerializeField] private DialogueSequenceController dialogueSequenceController;
     private MessageService _service;
 
     private DialogueData[] _dialogues;
@@ -16,33 +13,10 @@ public class MessageManager : MonoBehaviour
 
     async void Start()
     {
-        _dialogueBoxFactory = new DialogueBoxFactory(dialogueBoxPrefab);
         await InitializeService();
         await InitializeAvatars();
 
-        // TODO: desacoplate this from the service and use a more generic way to get the dialogues
-        foreach (var dialogue in _dialogues)
-        {
-            if (_avatars.TryGetValue(dialogue.name, out var avatarData))
-            {
-                _dialogueBoxFactory.Create(dialogueBoxParent, dialogue, avatarData);
-            }
-            else
-            {
-                Debug.LogWarning($"Avatar not found for dialogue '{dialogue.name}', using fallback.");
-
-                var fallbackAvatar = new AvatarData
-                {
-                    name = dialogue.name,
-                    Image = null,
-                    position = "left",
-                };
-
-                _dialogueBoxFactory.Create(dialogueBoxParent, dialogue, fallbackAvatar);
-                continue;
-            }
-
-        }
+        dialogueSequenceController.Initialize(_dialogues, _avatars);
     }
 
     async Task InitializeService()
@@ -69,7 +43,6 @@ public class MessageManager : MonoBehaviour
                 avatarData.Image = texture;
             }
         }
-
     }
 
 }
